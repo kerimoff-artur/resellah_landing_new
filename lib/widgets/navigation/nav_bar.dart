@@ -3,6 +3,7 @@ import 'package:resellah_landing_new/utils/constrants/images_string.dart';
 import 'package:resellah_landing_new/utils/constrants/colors.dart';
 import 'package:resellah_landing_new/utils/responsive/responsive.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:resellah_landing_new/services/analytics_service.dart';
 
 class NavBar extends StatelessWidget {
   const NavBar({required Key key}) : super(key: key);
@@ -71,6 +72,7 @@ class _NavBarItemState extends State<_NavBarItem> {
   bool _isHovered = false;
 
   Future<void> _launchUrl() async {
+    await AnalyticsService.logNavClick(widget.title);
     if (!await launchUrl(Uri.parse(widget.url))) {
       throw Exception('Could not launch ${widget.url}');
     }

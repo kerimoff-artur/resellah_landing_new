@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "281420460156",
+    "project_id": "resellahlanding",
+    "storage_bucket": "resellahlanding.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:281420460156:android:06d6c75d3e4268ba2d19f9",
+        "android_client_info": {
+          "package_name": "com.example.resellah_landing_new"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKCRuwSEYh32fRGeiMfu0JGP_AyLTEzkM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

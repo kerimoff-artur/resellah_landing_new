@@ -6,6 +6,7 @@ import 'package:resellah_landing_new/widgets/animated_background.dart';
 import 'package:resellah_landing_new/utils/responsive/responsive.dart';
 import 'package:http/http.dart' as http;
 import 'package:resellah_landing_new/utils/config/app_config.dart';
+import 'package:resellah_landing_new/services/analytics_service.dart';
 
 class Header extends StatefulWidget {
   const Header({required Key key}) : super(key: key);
@@ -60,6 +61,7 @@ class _HeaderState extends State<Header> {
         throw Exception('Failed to submit');
       }
       
+      await AnalyticsService.logEmailSubmission();
       _emailController.clear();
       
       if (mounted) {

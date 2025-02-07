@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:resellah_landing_new/utils/constrants/colors.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:resellah_landing_new/services/analytics_service.dart';
 
 class MobileDrawer extends StatelessWidget {
   const MobileDrawer({super.key});
@@ -9,6 +10,12 @@ class MobileDrawer extends StatelessWidget {
     if (!await launchUrl(Uri.parse(url))) {
       throw Exception('Could not launch $url');
     }
+  }
+
+  Future<void> _handleNavClick(BuildContext context, String title, String url) async {
+    Navigator.pop(context);
+    await AnalyticsService.logNavClick(title);
+    await _launchUrl(url);
   }
 
   @override
@@ -28,10 +35,7 @@ class MobileDrawer extends StatelessWidget {
                 fontFamily: 'RobotoBold',
               ),
             ),
-            onTap: () {
-              Navigator.pop(context);
-              _launchUrl('https://forms.gle/NVFUgN4DjdZBu2sq6');
-            },
+            onTap: () => _handleNavClick(context, 'Partnership', 'https://forms.gle/NVFUgN4DjdZBu2sq6'),
           ),
           ListTile(
             title: const Text(
@@ -42,10 +46,7 @@ class MobileDrawer extends StatelessWidget {
                 fontFamily: 'RobotoBold',
               ),
             ),
-            onTap: () {
-              Navigator.pop(context);
-              _launchUrl('https://docs.google.com/presentation/d/1Vpke9ZnXSX7i8zVEEhRFsn2oRASrViqPiECjiamdeSk/edit?usp=sharing');
-            },
+            onTap: () => _handleNavClick(context, 'For Investors', 'https://docs.google.com/presentation/d/1Vpke9ZnXSX7i8zVEEhRFsn2oRASrViqPiECjiamdeSk/edit?usp=sharing'),
           ),
           ListTile(
             title: const Text(
@@ -56,10 +57,7 @@ class MobileDrawer extends StatelessWidget {
                 fontFamily: 'RobotoBold',
               ),
             ),
-            onTap: () {
-              Navigator.pop(context);
-              _launchUrl('https://www.linkedin.com/in/kerimov-artur/');
-            },
+            onTap: () => _handleNavClick(context, 'Contacts', 'https://www.linkedin.com/in/kerimov-artur/'),
           ),
         ],
       ),
