@@ -142,10 +142,17 @@ class _HeaderState extends State<Header> {
           flex: 1,
           child: Padding(
             padding: const EdgeInsets.only(right: 20),
-            child: Image.asset(
-              AppImages.landingImage,
+            child: FadeInImage.assetNetwork(
+              placeholder: 'assets/images/placeholder.png',
+              image: AppImages.landingImage,
               height: Responsive.height(context) * (Responsive.isTablet(context) ? 0.5 : 0.6),
               fit: BoxFit.contain,
+              imageErrorBuilder: (context, error, stackTrace) {
+                print('Error loading image: $error');
+                return const Center(
+                  child: Icon(Icons.error_outline, color: Colors.red, size: 40),
+                );
+              },
             ),
           ),
         ),
@@ -159,10 +166,17 @@ class _HeaderState extends State<Header> {
       children: [
         _buildContent(context),
         const SizedBox(height: 40),
-        Image.asset(
-          AppImages.landingImage,
+        FadeInImage.assetNetwork(
+          placeholder: 'assets/images/placeholder.png',
+          image: AppImages.landingImage,
           height: Responsive.height(context) * 0.3,
           fit: BoxFit.contain,
+          imageErrorBuilder: (context, error, stackTrace) {
+            print('Error loading image: $error');
+            return const Center(
+              child: Icon(Icons.error_outline, color: Colors.red, size: 40),
+            );
+          },
         ),
       ],
     );
