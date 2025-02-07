@@ -5,11 +5,26 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "chrome",
+            "name": "resellah_landing_new",
             "request": "launch",
-            "name": "Launch Chrome against localhost",
-            "url": "http://localhost:8080",
-            "webRoot": "${workspaceFolder}"
+            "type": "dart",
+            "args": [
+                "-d",
+                "chrome",
+                "--web-port=8080"
+            ]
+        },
+        {
+            "name": "resellah_landing_new (profile mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "resellah_landing_new (release mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
         }
     ]
 }

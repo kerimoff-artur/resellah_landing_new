@@ -12,6 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Resellah',
       theme: ThemeData(
         textTheme: Theme.of(context).textTheme.apply(
