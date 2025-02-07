@@ -1,11 +1,11 @@
 {
-    "name": "resellah_landing_new",
-    "short_name": "resellah_landing_new",
+    "name": "Resellah",
+    "short_name": "Resellah",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Resellah - Sell. Buy. Reuse. Own the future.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
