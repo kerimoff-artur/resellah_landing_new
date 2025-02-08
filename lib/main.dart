@@ -1,16 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:resellah_landing_new/views/home/home_view.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:resellah_landing_new/services/analytics_service.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  try {
-    await Firebase.initializeApp();
-    await AnalyticsService.logWebsiteOpen();
-  } catch (e) {
-    print('Firebase initialization error: $e');
-  }
+void main() {
   runApp(const MyApp());
 }
 
