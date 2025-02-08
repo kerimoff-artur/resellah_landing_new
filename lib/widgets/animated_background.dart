@@ -11,19 +11,19 @@ class AnimatedBackground extends StatefulWidget {
 class _AnimatedBackgroundState extends State<AnimatedBackground> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<Offset> _animation;
-  final double navBarHeight = 100.0; // Exact NavBar height
+  final double navBarHeight = 100.0;
 
   @override
   void initState() {
     super.initState();
     _controller = AnimationController(
-      duration: const Duration(seconds: 40),
+      duration: const Duration(seconds: 30),
       vsync: this,
     )..repeat();
 
     _animation = Tween<Offset>(
       begin: const Offset(0, 0),
-      end: const Offset(0, -1),
+      end: const Offset(0, -0.5),
     ).animate(
       CurvedAnimation(
         parent: _controller,
@@ -38,21 +38,6 @@ class _AnimatedBackgroundState extends State<AnimatedBackground> with SingleTick
     super.dispose();
   }
 
-  Widget _buildPatternContainer(double height) {
-    return Container(
-      width: MediaQuery.of(context).size.width,
-      height: height,
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage(AppImages.textLogoLight),
-          repeat: ImageRepeat.repeat,
-          scale: 6.0,
-          opacity: 0.3,
-        ),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
@@ -62,18 +47,23 @@ class _AnimatedBackgroundState extends State<AnimatedBackground> with SingleTick
       height: headerHeight,
       child: ClipRect(
         child: Stack(
+          fit: StackFit.expand,
           children: [
-            // First sliding pattern
             SlideTransition(
               position: _animation,
-              child: _buildPatternContainer(headerHeight),
-            ),
-            // Second sliding pattern that follows
-            SlideTransition(
-              position: _animation,
-              child: Transform.translate(
-                offset: Offset(0, headerHeight),
-                child: _buildPatternContainer(headerHeight),
+              child: Container(
+                width: double.infinity,
+                height: headerHeight * 3,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(AppImages.textLogoLight),
+                    repeat: ImageRepeat.repeat,
+                    scale: 6.0,
+                    opacity: 0.3,
+                    alignment: Alignment.topCenter,
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ),
             ),
           ],
