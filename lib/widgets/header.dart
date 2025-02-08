@@ -9,7 +9,7 @@ import 'package:resellah_landing_new/utils/config/app_config.dart';
 import 'package:resellah_landing_new/services/analytics_service.dart';
 
 class Header extends StatefulWidget {
-  const Header({required Key key}) : super(key: key);
+  const Header({super.key});
 
   @override
   State<Header> createState() => _HeaderState();

@@ -6,7 +6,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:resellah_landing_new/services/analytics_service.dart';
 
 class NavBar extends StatelessWidget {
-  const NavBar({required Key key}) : super(key: key);
+  const NavBar({super.key});
 
   @override
   Widget build(BuildContext context) {

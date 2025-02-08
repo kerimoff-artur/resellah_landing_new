@@ -16,13 +16,13 @@ class HomeView extends StatelessWidget {
       body: SizedBox.expand(
         child: Stack(
           children: <Widget>[
-            NavBar(key: UniqueKey()),
+            const NavBar(),
             Positioned(
               top: 100, // Height of NavBar
               left: 0,
               right: 0,
               bottom: 0,
-              child: Header(key: UniqueKey()),
+              child: const Header(),
             ),
           ],
         ),
